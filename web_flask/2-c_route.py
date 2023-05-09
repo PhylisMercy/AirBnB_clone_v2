@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue May 9 10:30:15 2023
+Created on Tue May 9 11:08:30 2023
 
 @author: Phylis Mercy
 """
@@ -19,6 +19,12 @@ def hello():
 def hbnb():
     """Adding a specific route /hbnb"""
     return 'HBNB'
+
+
+@app.route('/c/<string:text>', strict_slashes=False)
+def text(text=None):
+    """Dynamic inputed text: replace _ for space and show text"""
+    return "C {}".format(text.replace('_', ' '))
 
 
 if __name__ == '__main__':
