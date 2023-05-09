@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 """
-Created on Tue Apr 9 8:48:00 2023
+Created on Tue May 9 10:30:15 2023
 
 @author: Phylis Mercy
 """
@@ -13,6 +13,12 @@ app = Flask(__name__)
 def hello():
     """Start a basic Flask web application"""
     return 'Hello HBNB!'
+
+
+@app.route('/hbnb', strict_slashes=False)
+def hbnb():
+    """Adding a specific route /hbnb"""
+    return 'HBNB'
 
 
 if __name__ == '__main__':
