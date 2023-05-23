@@ -1,24 +1,18 @@
 #!/usr/bin/python3
 """
-This module Utilizes basic routes and simple
-html display
+script that starts a Flask web application:
 """
 from flask import Flask
-import os
-os.environ["FLASK_APP"] = "0-hello_route.py"
-
-# Function that creates the app
-
 
 app = Flask(__name__)
 
 
-@app.route('/airbnb-onepage/', strict_slashes=False)
-def hello_world():
-    """ Function returns a very basic html string without any tags"""
+@app.route('/', strict_slashes=False)
+def hello_HBNB():
+    """
+    Print a string
+    """
     return 'Hello HBNB!'
 
-
-# Create the App
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=True)
