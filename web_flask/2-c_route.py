@@ -1,31 +1,39 @@
 #!/usr/bin/python3
-# -*- coding: utf-8 -*-
 """
-Created on Tue May 9 11:08:30 2023
-
-@author: Phylis Mercy
+script that starts a Flask web application:
+Routes:
+* /: display “Hello HBNB!”
+* /hbnb: display “HBNB”
+* /c/<text>: display “C ” followed by the value of the text variable
+  (replace underscore _ symbols with a space )
 """
 from flask import Flask
+
 app = Flask(__name__)
 
 
 @app.route('/', strict_slashes=False)
-def hello():
-    """Start a basic Flask web application"""
+def hello_HBNB():
+    """
+    Print a string
+    """
     return 'Hello HBNB!'
 
 
-@app.route('/hbnb', strict_slashes=False)
-def hbnb():
-    """Adding a specific route /hbnb"""
+@app.route('/hbnb/', strict_slashes=False)
+def display_HBNB():
+    """
+    Print a string
+    """
     return 'HBNB'
 
 
-@app.route('/c/<string:text>', strict_slashes=False)
-def text(text=None):
-    """Dynamic inputed text: replace _ for space and show text"""
-    return "C {}".format(text.replace('_', ' '))
+@app.route('/c/<text>/', strict_slashes=False)
+def C_is_fun(text):
+    """
+    Print a string
+    """
+    return 'C {}'.format(text.replace('_', ' '))
 
-
-if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+if __name__ == "__main__":
+    app.run("0.0.0.0", debug=True)
